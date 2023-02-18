@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>exoS2</title>
+</head>
+
+<body>
+
+    <p id="accueil">Bienvenue dans le jeu <br>
+        Le nombre à trouver est </p>
+
+    <script>
+
+        function chooseSolution() {
+            let choice = prompt("Joueur 1 : choisissez un nombre entre 0 et 50 que le joueur 2 doit trouver")
+            let solution = choice
+            if (solution < 0 || solution > 50 || isNaN(solution) == true) {
+                alert("Ce nombre n'est pas compris entre 0 et 50")
+                chooseSolution()
+            }
+            return solution
+        }
+
+
+        function askNumber() {
+            let number = prompt("Joueur 2 : Entrez un nombre de votre choix")
+            let givenNumber = number
+            return givenNumber
+        }
+
+        function didIWin(givenNumber) {
+            // let numberAttempts = 0
+            // numberAttempts++ 
+             //ici on incrémente le nombre d'essais
+            if (givenNumber < valeurSolution) {
+                alert("C'est plus grand")
+            }
+
+
+            else if (givenNumber > valeurSolution) {
+                alert("C'est plus petit")
+            }
+            else if (givenNumber == valeurSolution) {
+                alert("Bravo, vou savez trouvé le bon nombre en " + numberAttempts + " essais !")
+                return true
+            }
+            else {
+                alert("ceci n'est pas un nombre")
+            }
+        }
+
+
+        function gameplay() {
+          
+            let givenNumber = parseInt(askNumber())
+            if (didIWin(givenNumber) != true) {
+                gameplay()
+            }
+        }
+
+    
+        let valeurSolution = parseInt(chooseSolution())
+        gameplay()
+
+        document.getElementById('accueil').innerText
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!-- if (givenNumber < valeurSolution) {
+
+}
+alert("Eh non ! C'est compris entre " + giveMin + " et " + giveMax)
+}
+
+
+
+
+else if (givenNumber > valeurSolution) {
+alert("Eh non ! C'est compris entre 0 et " + givenNumber)
+}
+else if (givenNumber == valeurSolution) {
+alert("Bravo ! Vous avez trouvé le bon nombre!")
+return true
+}
+else {
+alert("ceci n'est pas un nombre")
+} -->
